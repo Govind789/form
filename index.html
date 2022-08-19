@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            background-color: rgba(18, 241, 156, 0.932);
+        }
+        h3{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 27px;
+        }
+        textarea{
+            height: 257px;
+            max-width: 644px;
+            width: 100%;
+            min-width: min-content;
+            margin: auto;
+            display: block;
+            background-color: #e7e7e7f2;
+            border: 6px rgb(29, 6, 243);
+            border-style: outset;
+            font-size: 20px;
+        }
+        .done {
+            cursor: pointer;
+            float: left;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: beige;
+            padding: 3px;
+            width: 80px;
+            margin-top: 5px;
+            margin-left: 355px;
+            margin-right: 256px;
+        }
+        .done:hover{
+            background-color: rgb(219, 219, 202);
+        }
+        p{ 
+            font-size: 20px;
+        }
+        @media only screen and (max-width:644px){
+        /* For mobile phones: */
+        .menu, .main, .done,.fullbody{
+            width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="fullbody">
+    <h3>FEEDBACK FORM</h3>
+    <textarea id="data" class="main" maxlength="180" oninput="count()"></textarea>
+    <div><input type="button" class="done" value="SUBMIT" onclick="given()"></div>
+    <p id="limit">0 words are over and 180 words are left</p>
+    </section>
+</body>
+<script>
+    function count(){
+    let x = document.getElementById("data").value;
+    let y = x.length;
+    let z = document.getElementById("data").innerText;
+    if (y == ""){
+        document.getElementById("limit").innerHTML = "0 words are over and 180 words are left";
+        }
+    else{
+        document.getElementById("limit").innerHTML = y + " words are over and " + (180 - y) + " words are left";
+        }
+    }
+    function given(){
+    let p = document.getElementsByClassName("done").innerHTML;
+    let q = prompt("do you want to submit","ALSO RATE ME WITHIN 5 STAR").innerHTML;
+    console.log = q ;
+    }
+</script>
+</html>
